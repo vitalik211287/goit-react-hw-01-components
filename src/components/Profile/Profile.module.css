@@ -6,6 +6,7 @@ body {
 .profile {
   background-color: rgb(193, 198, 198);
   padding: 25px;
+  padding-left: 0;
   width: 100%;
   height: 100%;
   margin-left: auto;

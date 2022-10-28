@@ -1,17 +1,15 @@
-import data from 'components/Statistics/data.json';
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Item, Statistic, Title, List, Lable } from './Statistics.styled';
 
-function Statistics({ stats }) {
+function Statistics({ title, stats }) {
   const { id, label, percentage } = stats;
   return (
     <Statistic>
       <Title>UPLOAD STATS</Title>
-      <List key={id}>
+      <List>
         {stats.map(stat => {
           return (
-            <Item >
+            <Item key={stat.id}>
               <Lable>{stat.label}</Lable>
               <Lable>{stat.percentage}%</Lable>
             </Item>
