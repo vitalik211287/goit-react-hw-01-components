@@ -4,8 +4,6 @@ import css from './Profile.module.css';
 function Profile(props) {
   const { avatar, username, tag, location, followers, views, likes, stats } =
     props;
-  console.log({ stats });
-  console.log({ username });
   return (
     <div className={css.profile}>
       <div className={css.description}>
@@ -17,7 +15,9 @@ function Profile(props) {
           {Object.entries(stats).flatMap(stat => {
             return (
               <li className={css.item} key={stat[1]}>
-                <span className={css.label}>{stat[0]} </span>
+                <span className={css.label}>
+                  {stat[0].charAt(0).toUpperCase() + stat[0].slice(1)}
+                </span>
                 <span className={css.quantity}>{stat[1]}</span>
               </li>
             );
