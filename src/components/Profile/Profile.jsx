@@ -1,33 +1,31 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css'
+import css from './Profile.module.css';
 
 function Profile(props) {
-  const { avatar, username, tag, location, followers, views, likes } = props;
-    return (
-      <div className={css.profile}>
-        <div className={css.description}>
-          <img src={avatar} alt={username} className={css.avatar} />
-          <p className={css.name}>{username}</p>
-          <p className={css.tag}>@{tag}</p>
-          <p className={css.location}>{location}</p>
-
-          <ul className={css.stats}>
-            <li className={css.item}>
-              <span className={css.label}>Followers </span>
-              <span className={css.quantity}>{followers}</span>
-            </li>
-            <li className={css.item}>
-              <span className={css.label}>Views </span>
-              <span className={css.quantity}>{views}</span>
-            </li>
-            <li className={css.item}>
-              <span className={css.label}>Likes </span>
-              <span className={css.quantity}>{likes}</span>
-            </li>
-          </ul>
-        </div>
+  const { avatar, username, tag, location, followers, views, likes, stats } =
+    props;
+  console.log({ stats });
+  console.log({ username });
+  return (
+    <div className={css.profile}>
+      <div className={css.description}>
+        <img src={avatar} alt={username} className={css.avatar} />
+        <p className={css.name}>{username}</p>
+        <p className={css.tag}>@{tag}</p>
+        <p className={css.location}>{location}</p>
+        <ul className={css.stats}>
+          {Object.entries(stats).flatMap(stat => {
+            return (
+              <li className={css.item}>
+                <span className={css.label}>{stat[1]} </span>
+                <span className={css.quantity}>{stat[0]}</span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    );
+    </div>
+  );
 }
 Profile.propTypes = {
   avatar: PropTypes.string.isRequired,
