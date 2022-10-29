@@ -16,9 +16,9 @@ function Profile(props) {
         <ul className={css.stats}>
           {Object.entries(stats).flatMap(stat => {
             return (
-              <li className={css.item}>
-                <span className={css.label}>{stat[1]} </span>
-                <span className={css.quantity}>{stat[0]}</span>
+              <li className={css.item} key={stat[1]}>
+                <span className={css.label}>{stat[0]} </span>
+                <span className={css.quantity}>{stat[1]}</span>
               </li>
             );
           })}
